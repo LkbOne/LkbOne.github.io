@@ -494,12 +494,12 @@
                 <div class="author flex flex-col justify-center my-2.5 mx-0">
                     <div class="name">The Redefine Team</div>
                     
-                        <div class="label">Lv2</div>
+                        <div class="label">Lv3</div>
                     
                 </div>
                 <div class="statistics">
                     <a class="item" href="/tags">
-                        <div class="number">0</div>
+                        <div class="number">1</div>
                         <div class="label">Tags</div>
                     </a>
                     <a class="item" href="/categories">
@@ -507,7 +507,7 @@
                         <div class="label">Categories</div>
                     </a>
                     <a class="item" href="/archives">
-                        <div class="number">10</div>
+                        <div class="number">20</div>
                         <div class="label">Posts</div>
                     </a>
                 </div>
@@ -534,53 +534,44 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/12/04/high-performance/">
-                        high-performance
+                    <a href="/2023/12/09/pipeline/">
+                        pipeline
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        高性能这块，要从单机跟多机入手
-
-单机
-多线程
-并行执行
-同步转异步
-
-
-缓存
-缓存CPU计算结果
-缓存慢速IO数据
-
-
-
-
-多机
-负载均衡
-分区（多主的感觉）
-主写从读
-
-
-
-
+                        Pipeline的接口是ChannelPipeline。而ChannelPipeline的实现是以Intercepting Filter patter 实现的。该接口的文档上有很清晰的说明。
+我借着文档发挥下。最好是看文档。最好是看文档。最好是看文档...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Dec 04 2023 00:54:34 GMT+0800">
+            <span class="home-article-date" data-date="Sat Dec 09 2023 10:49:37 GMT+0800">
                 
-                    2023-12-04
+                    2023-12-09
                 
             </span>
         </span>
         
         
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Netty/">Netty</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
     </div>
 
-    <a href="/2023/12/04/high-performance/">Read more<span class="seo-reader-text">high-performance</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/12/09/pipeline/">Read more<span class="seo-reader-text">pipeline</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -594,46 +585,44 @@
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/12/04/cache/">
-                        cache
+                    <a href="/2023/12/08/netty/">
+                        netty
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        缓存：在我的认知里便是有俩种情况
-
-缓存计算结果，减少CPU
-缓存慢速存储结构的数据，较少慢速的IO
-
-
-客户端缓存
-强制缓存
-协商缓存
-
-
-CDN缓存
-本地缓存
-分布式缓存
-
-
+                        在阅读了Netty源码后，我惊讶的get到，事件在不同线程中的转移竟可以这么设计。
+Netty的抽象中，将IO的处理，整理为一个事件处理流程Pipeline，每一个事件处理抽象为Handler。其中，Handler与一个EventLoop关联（你现在...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Dec 04 2023 00:44:57 GMT+0800">
+            <span class="home-article-date" data-date="Fri Dec 08 2023 12:01:29 GMT+0800">
                 
-                    2023-12-04
+                    2023-12-08
                 
             </span>
         </span>
         
         
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/Netty/">Netty</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
     </div>
 
-    <a href="/2023/12/04/cache/">Read more<span class="seo-reader-text">cache</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/12/08/netty/">Read more<span class="seo-reader-text">netty</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -647,53 +636,31 @@ CDN缓存
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/12/04/available/">
-                        available
+                    <a href="/2023/12/07/dubbo/">
+                        dubbo
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        可用性的话，我想说明
-
-故障迁移
-有中心化
-协议
-paoxy
-Zab
-Raft
+                        dubbo的接入 
+ 
+    com.alibaba.cloud
+    spring-cloud-starter-alibaba-nacos-discovery
+    2022.0.0.0-RC2
 
 
 
-
-无中心化
-协议：Gossip
-
-
-
-
-复制
-全量同步
-增量同步
-基于可用性的同步
-异步同步
-半同步
-全同步
-
-
-
-
-
-
+需要配置服务名spring.applic...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Dec 04 2023 00:33:54 GMT+0800">
+            <span class="home-article-date" data-date="Thu Dec 07 2023 10:35:37 GMT+0800">
                 
-                    2023-12-04
+                    2023-12-07
                 
             </span>
         </span>
@@ -701,7 +668,7 @@ Raft
         
     </div>
 
-    <a href="/2023/12/04/available/">Read more<span class="seo-reader-text">available</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/12/07/dubbo/">Read more<span class="seo-reader-text">dubbo</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -715,48 +682,28 @@ Raft
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/12/04/transaction/">
-                        transaction
+                    <a href="/2023/12/07/kafka/">
+                        kafka
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        事务我想表述清楚的是
+                        kafka下载地址，这是2.13版本 
+kafka quickstart 我选择了用KRaft的一致性方式
+它分了三步
 
-本地事务
-XA事务
-MySQL的binlog与redolog的一致性
-
-
-
-
-分布式事务
-CAP理论
-C：一致性
-A：可用性
-P：分区容错性
-
-
-BASE理论
-BA：基本可用性
-S：软状态
-E：最终一致性
-
-
-
-
-刚性事务
-强...
+Generate a Cluster UUID
+Format Log Directories 它打印出来了这个版本号，应该是Me...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Dec 04 2023 00:16:54 GMT+0800">
+            <span class="home-article-date" data-date="Thu Dec 07 2023 07:25:23 GMT+0800">
                 
-                    2023-12-04
+                    2023-12-07
                 
             </span>
         </span>
@@ -764,7 +711,7 @@ E：最终一致性
         
     </div>
 
-    <a href="/2023/12/04/transaction/">Read more<span class="seo-reader-text">transaction</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/12/07/kafka/">Read more<span class="seo-reader-text">kafka</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -778,45 +725,25 @@ E：最终一致性
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/12/04/lock/">
-                        lock
+                    <a href="/2023/12/07/nacos/">
+                        nacos
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        锁我想讲一些事情。
-
-锁得基本性质
-是否可重入
-如何保证互斥
-如何保证同步
-共享锁
-排他锁
-
-
-如何尽量提高性能
-无锁
-自旋锁
-用户态
-内核态
-
-
-分布式使用
-分布式锁
-
-
-
-
+                        nacos官网 
+Add a spring.config.import&#x3D;nacos: property to your configuration.
+解决方案：增加一个spring.config.import&#x3D;nacos:appl...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Dec 04 2023 00:16:23 GMT+0800">
+            <span class="home-article-date" data-date="Thu Dec 07 2023 02:18:16 GMT+0800">
                 
-                    2023-12-04
+                    2023-12-07
                 
             </span>
         </span>
@@ -824,7 +751,7 @@ E：最终一致性
         
     </div>
 
-    <a href="/2023/12/04/lock/">Read more<span class="seo-reader-text">lock</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/12/07/nacos/">Read more<span class="seo-reader-text">nacos</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -838,65 +765,25 @@ E：最终一致性
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/12/03/netty-bootstrap/">
-                        netty-bootstrap
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        通过Netty实现简单的回显服务器了解了Reacotr后，我们先通过Netty实现一个回显服务（EchoServer），主要的代码如下
-
-12345678910111213141516171819202122232425262728293031Eve...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Sun Dec 03 2023 14:44:42 GMT+0800">
-                
-                    2023-12-03
-                
-            </span>
-        </span>
-        
-        
-    </div>
-
-    <a href="/2023/12/03/netty-bootstrap/">Read more<span class="seo-reader-text">netty-bootstrap</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/12/03/redis/">
+                    <a href="/2023/12/06/redis/">
                         redis
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        找到稳定版本的Redishttps://redis.io/download/ 
-https://www.cnblogs.com/hunanzp/p/12304622.html 
-spring-boot-starter-data-redis配置http...
+                        
+使用telnet ip port  查看端口是否可用
+安装redis时远程连接出现了，protect mode的问题。-DENIED Redis is running in protected mode because protected mode...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Sun Dec 03 2023 00:42:18 GMT+0800">
+            <span class="home-article-date" data-date="Wed Dec 06 2023 22:53:42 GMT+0800">
                 
-                    2023-12-03
+                    2023-12-06
                 
             </span>
         </span>
@@ -904,7 +791,7 @@ spring-boot-starter-data-redis配置http...
         
     </div>
 
-    <a href="/2023/12/03/redis/">Read more<span class="seo-reader-text">redis</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/12/06/redis/">Read more<span class="seo-reader-text">redis</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -918,35 +805,25 @@ spring-boot-starter-data-redis配置http...
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/12/02/netty-start/">
-                        netty-start
+                    <a href="/2023/12/06/java-exception/">
+                        java-exception
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        这个系列是我自己想通过netty更深入的了解网络编程.   
-
-    事件驱动
-    IO
-    network
-        
-            TCP
-            Socket网络编程
-        
-    
-
-
-理...
+                        这一份文章，主要用于我的标记与整理。为了之后可以将所有语言进行对比，并提高给我一个对比的思路。
+Java的异常通过try-catch-finally来实现。在资源中有try-catch-resource在实现了AutoCloseable接口下。
+tr...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Sat Dec 02 2023 15:01:09 GMT+0800">
+            <span class="home-article-date" data-date="Wed Dec 06 2023 09:08:32 GMT+0800">
                 
-                    2023-12-02
+                    2023-12-06
                 
             </span>
         </span>
@@ -954,7 +831,7 @@ spring-boot-starter-data-redis配置http...
         
     </div>
 
-    <a href="/2023/12/02/netty-start/">Read more<span class="seo-reader-text">netty-start</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/12/06/java-exception/">Read more<span class="seo-reader-text">java-exception</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -968,29 +845,27 @@ spring-boot-starter-data-redis配置http...
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/10/18/new-start/">
-                        new_start
+                    <a href="/2023/12/05/eventloop/">
+                        eventloop
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        time
-command:hexo g
+                        现在我们来研究下EventLoop
+类关系上一下类的关系图
 
-change the github post way
-
-
-
+最重要的一点是实现了ExecutorService这一个线程池类。所以，他是一个线程池
+看到一个SinglethreadEventLoop以及MultithreadEventLoopGro...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Wed Oct 18 2023 19:37:21 GMT+0800">
+            <span class="home-article-date" data-date="Tue Dec 05 2023 18:28:48 GMT+0800">
                 
-                    2023-10-18
+                    2023-12-05
                 
             </span>
         </span>
@@ -998,7 +873,7 @@ change the github post way
         
     </div>
 
-    <a href="/2023/10/18/new-start/">Read more<span class="seo-reader-text">new_start</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/12/05/eventloop/">Read more<span class="seo-reader-text">eventloop</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -1012,23 +887,29 @@ change the github post way
                 
 
                 <h3 class="home-article-title">
-                    <a href="/2023/10/16/hello-world/">
-                        Hello World
+                    <a href="/2023/12/05/code-think/">
+                        code-think
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        Welcome to Hexo ! This is your very first post. Check documentation  for more info. If you get any problems when using Hexo, ...
+                        工具类的书写
+final修饰：
+构造方法设置为私有：避免有人误用，导致实例化使用。
+所有的方法都设置为静态方法：由于原因2
+
+例子如下：摘抄自Netty代码。
+1234567final class NativeStaticallyReferenced...
                     
                 </div>
 
                 <div class="home-article-meta-info-container">
     <div class="home-article-meta-info">
         <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Mon Oct 16 2023 13:36:26 GMT+0800">
+            <span class="home-article-date" data-date="Tue Dec 05 2023 15:03:26 GMT+0800">
                 
-                    2023-10-16
+                    2023-12-05
                 
             </span>
         </span>
@@ -1036,7 +917,48 @@ change the github post way
         
     </div>
 
-    <a href="/2023/10/16/hello-world/">Read more<span class="seo-reader-text">Hello World</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/12/05/code-think/">Read more<span class="seo-reader-text">code-think</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/12/05/Mediator/">
+                        Mediator
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        设计模式-中介者模式
+作用中介者模式是一种行为设计模式， 能让你减少对象之间混乱无序的依赖关系。 该模式会限制对象之间的直接交互， 迫使它们通过一个中介者对象进行合作。
+场景与问题
+假如你有一个创建和修改客户资料的对话框， 它由各种控件组成， 例如文...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Tue Dec 05 2023 10:16:18 GMT+0800">
+                
+                    2023-12-05
+                
+            </span>
+        </span>
+        
+        
+    </div>
+
+    <a href="/2023/12/05/Mediator/">Read more<span class="seo-reader-text">Mediator</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -1045,7 +967,7 @@ change the github post way
 
     <div class="home-paginator">
         <div class="paginator">
-    <span class="page-number current">1</span>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa-regular fa-angle-right"></i></a>
 </div>
 
     </div>
