@@ -13,18 +13,25 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/archives/2023/12/page/3/"/>
+    <link rel="canonical" href="http://example.com/2023/12/12/templatepattern/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2023/12/page/3/index.html">
+        <meta name="description" content="上图是一个基本的模板方法模式实现，我们先了解下。  在AbstractMethodTemplate类定义了三个推迟到子类实现的方法，一个框架方法 在实现类中实现了推迟到子类的实现方法  是什么在 GoF 的《设计模式》中，它是这么定义的： 1Define the skeleton of an algorithm in an operation, deferring some steps t">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模版方法模式">
+<meta property="og:url" content="http://example.com/2023/12/12/TemplatePattern/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="上图是一个基本的模板方法模式实现，我们先了解下。  在AbstractMethodTemplate类定义了三个推迟到子类实现的方法，一个框架方法 在实现类中实现了推迟到子类的实现方法  是什么在 GoF 的《设计模式》中，它是这么定义的： 1Define the skeleton of an algorithm in an operation, deferring some steps t">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/12/12/TemplatePattern/template_pattern_class.png">
+<meta property="article:published_time" content="2023-12-12T07:21:19.000Z">
+<meta property="article:modified_time" content="2023-12-12T08:22:07.575Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Design-Pattern">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/12/12/TemplatePattern/template_pattern_class.png">
     
     
     <!--- Icon Part-->
@@ -36,7 +43,7 @@
     
     <title>
         
-            Archive: 2023/12 -
+            模版方法模式 -
         
         Lkb Hugh
     </title>
@@ -153,7 +160,7 @@
                         
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active" 
+                                <a class="" 
                                     href="/archives"  >
                                     
                                         
@@ -262,7 +269,7 @@
             
                 
                     <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
-                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group active" 
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
                         href="/archives"  >
                              
                                 
@@ -348,235 +355,270 @@
             <div class="main-content">
 
                 
-                    <div class="archive-container ">
-    
+                    <div class="post-page-container">
+    <div class="article-content-container">
 
-<div class="archive-list-container">
-    
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2023</span>
-                <span class="archive-year-post-count">[25]</span>
+        <div class="article-title">
+            
+                <h1 class="article-title-regular">模版方法模式</h1>
+            
             </div>
-            <ul class="article-list">
-              
+            
+                    
+        
+        
+            <div class="article-header flex flex-row gap-2 items-center">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/redefine-avatar.svg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Lkb Hugh</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-12-12 15:21:19</span>
+        <span class="mobile">2023-12-12 15:21:19</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-12-12 16:22:07</span>
+            <span class="mobile">2023-12-12 16:22:07</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
                 
                     
-                    <li class="article-item" date-is='12-12'>
-                
-                
-                    <a href="/2023/12/12/TemplatePattern/">
-                        <span class="article-title">模版方法模式</span>
-                    </a>
-                
-              
-                
-                
-                    <a href="/2023/12/12/architecture-directory/">
-                        <span class="article-title">架构导航目录</span>
-                    </a>
-                
-              
+                        
+                        <li>
+                            <a href="/categories/%E7%BC%96%E7%A0%81/">编码</a>&nbsp;
+                        </li>
+                    
+                    
                 
                     
-                    <li class="article-item" date-is='12-10'>
-                
-                
-                    <a href="/2023/12/10/redis-client/">
-                        <span class="article-title">使用Netty实现一个Redis客户端</span>
-                    </a>
-                
-              
-                
-                
-                    <a href="/2023/12/10/learn-event-transport-for-netty/">
-                        <span class="article-title">learn_event_transport_for_netty</span>
-                    </a>
-                
-              
-                
-                
-                    <a href="/2023/12/10/Chain-of-Responsibility-Pattern/">
-                        <span class="article-title">责任链模式</span>
-                    </a>
-                
-              
-                
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E7%BC%96%E7%A0%81/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;
+                        </li>
                     
-                    <li class="article-item" date-is='12-09'>
-                
-                
-                    <a href="/2023/12/09/pipeline/">
-                        <span class="article-title">pipeline</span>
-                    </a>
-                
-              
-                
                     
-                    <li class="article-item" date-is='12-08'>
                 
-                
-                    <a href="/2023/12/08/netty/">
-                        <span class="article-title">netty</span>
-                    </a>
-                
-              
-                
-                    
-                    <li class="article-item" date-is='12-07'>
-                
-                
-                    <a href="/2023/12/07/dubbo/">
-                        <span class="article-title">dubbo</span>
-                    </a>
-                
-              
-                
-                
-                    <a href="/2023/12/07/kafka/">
-                        <span class="article-title">kafka</span>
-                    </a>
-                
-              
-                
-                
-                    <a href="/2023/12/07/nacos/">
-                        <span class="article-title">nacos</span>
-                    </a>
-                
-              
-                
-                    
-                    <li class="article-item" date-is='12-06'>
-                
-                
-                    <a href="/2023/12/06/redis/">
-                        <span class="article-title">redis</span>
-                    </a>
-                
-              
-                
-                
-                    <a href="/2023/12/06/java-exception/">
-                        <span class="article-title">java-exception</span>
-                    </a>
-                
-              
-                
-                    
-                    <li class="article-item" date-is='12-05'>
-                
-                
-                    <a href="/2023/12/05/eventloop/">
-                        <span class="article-title">eventloop</span>
-                    </a>
-                
-              
-                
-                
-                    <a href="/2023/12/05/code-think/">
-                        <span class="article-title">code-think</span>
-                    </a>
-                
-              
-                
-                
-                    <a href="/2023/12/05/Mediator/">
-                        <span class="article-title">Mediator</span>
-                    </a>
-                
-              
-                
-                    
-                    <li class="article-item" date-is='12-04'>
-                
-                
-                    <a href="/2023/12/04/high-performance/">
-                        <span class="article-title">high-performance</span>
-                    </a>
-                
-              
-                
-                
-                    <a href="/2023/12/04/cache/">
-                        <span class="article-title">cache</span>
-                    </a>
-                
-              
-                
-                
-                    <a href="/2023/12/04/available/">
-                        <span class="article-title">available</span>
-                    </a>
-                
-              
-                
-                
-                    <a href="/2023/12/04/transaction/">
-                        <span class="article-title">transaction</span>
-                    </a>
-                
-              
-                
-                
-                    <a href="/2023/12/04/lock/">
-                        <span class="article-title">lock</span>
-                    </a>
-                
-              
-                
-                    
-                    <li class="article-item" date-is='12-03'>
-                
-                
-                    <a href="/2023/12/03/netty-bootstrap/">
-                        <span class="article-title">netty-bootstrap</span>
-                    </a>
-                
-              
-                
-                
-                    <a href="/2023/12/03/redis/">
-                        <span class="article-title">redis</span>
-                    </a>
-                
-              
-                
-                    
-                    <li class="article-item" date-is='12-02'>
-                
-                
-                    <a href="/2023/12/02/netty-start/">
-                        <span class="article-title">netty-start</span>
-                    </a>
-                
-              
-                
-                    
-                    <li class="article-item" date-is='10-18'>
-                
-                
-                    <a href="/2023/10/18/new-start/">
-                        <span class="article-title">new_start</span>
-                    </a>
-                
-              
-                
-                    
-                    <li class="article-item" date-is='10-16'>
-                
-                
-                    <a href="/2023/10/16/hello-world/">
-                        <span class="article-title">Hello World</span>
-                    </a>
-                
-              
             </ul>
-        </section>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Design-Pattern/">Design-Pattern</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body">
+            <!-- ![Alt text](image-15.png) -->
+<!-- ![Alt text](2023-12-12-TemplatePattern/template_pattern_class.png) -->
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023/12/12/TemplatePattern/template_pattern_class.png"
+                      class="" title="模板方法模式实现"
+                >
+
+<p>上图是一个基本的模板方法模式实现，我们先了解下。</p>
+<ul>
+<li>在AbstractMethodTemplate类定义了三个推迟到子类实现的方法，一个框架方法</li>
+<li>在实现类中实现了推迟到子类的实现方法</li>
+</ul>
+<h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>在 GoF 的《设计模式》中，它是这么定义的：</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Define the skeleton of an algorithm in an operation, deferring some steps to subclasses. Template Method lets subclasses redefine certain steps of an algorithm without changing the algorithm’s structure.</span><br></pre></td></tr></table></figure></div>
+<p>翻译：在一个方法中定义一个算法骨架，并将某些步骤推迟到子类中实现。模板方法让子类在不改变算法整体结构的情况下，重新定义算法中的某些步骤。</p>
+<p>具体实现上，父类定义一个方法，该方法聚合了一些方法，并固定了方法的执行关系。</p>
+<h2 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h2><p>模版方法模式可将不变的，与变化的分开来。起到了复用，以及易扩展的作用。满足了<a href="">开闭原则</a></p>
+<h2 id="怎么实现"><a href="#怎么实现" class="headerlink" title="怎么实现"></a>怎么实现</h2><p>实现时，需要注意俩点。</p>
+<ol>
+<li>框架方法定义为final，避免被改动</li>
+<li>可以将推迟到子类实现的方法，可设置为protected，可以避免子类直接调用，脱离框架方法的控制<ul>
+<li>protected注意事项<ul>
+<li>基类的 protected 成员是包内可见的，并且对子类可见；</li>
+<li>若子类与基类不在同一包中，那么在子类中，子类实例可以访问其从基类继承而来的protected方法，而不能访问基类实例的protected方法。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="实现的例子"><a href="#实现的例子" class="headerlink" title="实现的例子"></a>实现的例子</h2><p><a class="link"   target="_blank" rel="noopener" href="https://github.com/LkbOne/learning-design-pattern/tree/main/src/main/java/org/lkb/template_method_pattern" >github <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p><a class="link"   target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/java-protected-keyword-detailed-explanation.html" >protected关键字详解 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> 模版方法模式</li>
+        <li><strong>Author:</strong> Lkb Hugh</li>
+        <li><strong>Created at
+                :</strong> 2023-12-12 15:21:19</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2023-12-12 16:22:07
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://lkbone.github.io/2023/12/12/TemplatePattern/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+            This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>.
+            
+
+        </li>
+    </ul>
 </div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/Design-Pattern/">#Design-Pattern</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                        rel="next"
+                        href="/2023/12/12/architecture-directory/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">架构导航目录</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container">
+                <div class="comments-container pjax">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;Comments
+    </div>
+    
+
+        
+            
+ 
+    <div id="waline"></div>
+    <script type="module"  data-swup-reload-script>
+        import { init } from '/js/libs/waline.mjs';
+
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://example.example.com',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+            });
+        }
+
+        if ('true') {
+            const loadWalineTimeout = setTimeout(() => {
+                loadWaline();
+                clearTimeout(loadWalineTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadWaline);
+        }
+        
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">模版方法模式</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88"><span class="nav-text">为什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0"><span class="nav-text">怎么实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-text">实现的例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-text">引用</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
 
                 
 
@@ -649,6 +691,27 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-side-tools-container">
