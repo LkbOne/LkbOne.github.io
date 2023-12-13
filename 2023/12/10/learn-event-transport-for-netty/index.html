@@ -18,19 +18,20 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="为什么要学习从EventLoop以及Pipeline的实现中，我get到了事件在线程中流转的方式。而Netty实现这一套要很多值得借鉴的地方。一步步学习，掌握精髓。 学习步骤基于我现在知道的，我会分如下几步进行学习  实现基础的事件在线程中的转移  责任链模式  实现有序与无序的执行。   线程池的管理，以及使用任务的实现  线程池   引入NIO，实现不同类型事件的转移  ..   第一步-实现">
+        <meta name="description" content="为什么要学习从EventLoop以及Pipeline的实现中，我get到了事件在线程中流转的方式。而Netty实现这一套要很多值得借鉴的地方。一步步学习，掌握精髓。 学习步骤基于我现在知道的，我会分如下几步进行学习  实现基础的事件在线程中的转移  责任链模式  实现有序与无序的执行。 实现hanlde与线程池的绑定，handle之在绑定的线程中执行。   线程池的管理，以及使用任务的实现  线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="learn_event_transport_for_netty">
 <meta property="og:url" content="http://example.com/2023/12/10/learn-event-transport-for-netty/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="为什么要学习从EventLoop以及Pipeline的实现中，我get到了事件在线程中流转的方式。而Netty实现这一套要很多值得借鉴的地方。一步步学习，掌握精髓。 学习步骤基于我现在知道的，我会分如下几步进行学习  实现基础的事件在线程中的转移  责任链模式  实现有序与无序的执行。   线程池的管理，以及使用任务的实现  线程池   引入NIO，实现不同类型事件的转移  ..   第一步-实现">
+<meta property="og:description" content="为什么要学习从EventLoop以及Pipeline的实现中，我get到了事件在线程中流转的方式。而Netty实现这一套要很多值得借鉴的地方。一步步学习，掌握精髓。 学习步骤基于我现在知道的，我会分如下几步进行学习  实现基础的事件在线程中的转移  责任链模式  实现有序与无序的执行。 实现hanlde与线程池的绑定，handle之在绑定的线程中执行。   线程池的管理，以及使用任务的实现  线程">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2023/12/10/learn-event-transport-for-netty/image-14.png">
 <meta property="og:image" content="http://example.com/2023/12/10/learn-event-transport-for-netty/image-15.png">
 <meta property="og:image" content="http://example.com/2023/12/10/learn-event-transport-for-netty/image-parallel-execute.png">
 <meta property="og:image" content="http://example.com/2023/12/10/learn-event-transport-for-netty/image-serial-execute.png">
+<meta property="og:image" content="http://example.com/2023/12/10/learn-event-transport-for-netty/AbstractExecutor.png">
 <meta property="article:published_time" content="2023-12-10T10:10:36.000Z">
-<meta property="article:modified_time" content="2023-12-12T07:27:17.312Z">
+<meta property="article:modified_time" content="2023-12-13T07:02:54.146Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Netty">
 <meta name="twitter:card" content="summary">
@@ -392,8 +393,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-12-12 15:27:17</span>
-            <span class="mobile">2023-12-12 15:27:17</span>
+            <span class="desktop">2023-12-13 15:02:54</span>
+            <span class="mobile">2023-12-13 15:02:54</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -484,6 +485,7 @@
 <ol>
 <li><a class="link"   target="_blank" rel="noopener" href="https://lkbone.github.io/2023/12/10/Chain-of-Responsibility-Pattern/" >责任链模式 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
 <li>实现有序与无序的执行。</li>
+<li>实现hanlde与线程池的绑定，handle之在绑定的线程中执行。</li>
 </ol>
 </li>
 <li><p>线程池的管理，以及使用任务的实现</p>
@@ -496,7 +498,7 @@
 <li><p>..</p>
 </li>
 </ol>
-<h2 id="第一步-实现基础的事件在线程中的转移"><a href="#第一步-实现基础的事件在线程中的转移" class="headerlink" title="第一步-实现基础的事件在线程中的转移"></a>第一步-实现基础的事件在线程中的转移</h2><p>我实现了俩种</p>
+<h2 id="第一-实现基础的事件在线程中的转移"><a href="#第一-实现基础的事件在线程中的转移" class="headerlink" title="第一:实现基础的事件在线程中的转移"></a>第一:实现基础的事件在线程中的转移</h2><p>我实现了俩种</p>
 <ol>
 <li>并行化的事件流转</li>
 <li>线性化的事件流转</li>
@@ -553,6 +555,40 @@
 
 
 <p><a class="link"   target="_blank" rel="noopener" href="https://github.com/LkbOne/netty-learning/tree/main/src/main/java/org/example/eventloop/base_implement/simplest/core3" >实现对应的链接 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h3 id="实现hanlde与线程池的绑定，handle之在绑定的线程中执行。"><a href="#实现hanlde与线程池的绑定，handle之在绑定的线程中执行。" class="headerlink" title="实现hanlde与线程池的绑定，handle之在绑定的线程中执行。"></a>实现hanlde与线程池的绑定，handle之在绑定的线程中执行。</h3><ul>
+<li><p>技术注意项</p>
+<ul>
+<li>由于需要实现在绑定的线程中执行。那么我们需要判断当前线程是不是与线程池内的线程相同。<ul>
+<li>我们需要实现一个线程池，这个线程池需要知道自己正在运行的线程。</li>
+<li>我们需要保证运行时，不是线程池线程时，需要做到转移。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>实现选型</p>
+<ul>
+<li>线程池的选型，我们直接继承Executor，为了简单，我们先只实现execute方法。</li>
+<li>由于我们直接继承了Executor，所以需要一个只有一个线程的线程池管理，我们交给了Executors.newSingleThreadExecutor()这个实现。选择了Executors.newSingleThreadExecutor()，我们不需要关心任务队列。（这个到后面再实现）</li>
+<li>而持有线程，让封装的线程拥有一个Thread的属性。</li>
+<li>线程不相同的情况，我们通过new Runnable提交任务到当前线程池中执行。而Thread的赋值也交由该Runnable。</li>
+</ul>
+</li>
+<li><p>类关系图如下</p>
+<!-- ![!\[Alt text\](image-15.png)](2023-12-10-learn-event-transport-for-netty/AbstractExecutor.png) -->
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023/12/10/learn-event-transport-for-netty/AbstractExecutor.png"
+                      class="" title="增加执行器类"
+                >
+</li>
+<li><p>变化</p>
+<ol>
+<li>由于Handler需要与具体的Executor绑定，所以我们要有一个入参构造函数</li>
+</ol>
+</li>
+</ul>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/LkbOne/netty-learning/tree/main/src/main/java/org/example/eventloop/base_implement/comfirm_one_thread" >实现对应的链接 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
 
         </div>
 
@@ -567,7 +603,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2023-12-12 15:27:17
+                    :</strong> 2023-12-13 15:02:54
             </li>
         
         <li>
@@ -691,7 +727,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">learn_event_transport_for_netty</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0"><span class="nav-text">为什么要学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E6%AD%A5%E9%AA%A4"><span class="nav-text">学习步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%AE%9E%E7%8E%B0%E5%9F%BA%E7%A1%80%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%9C%A8%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E8%BD%AC%E7%A7%BB"><span class="nav-text">第一步-实现基础的事件在线程中的转移</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8C%E5%8C%96%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%B5%81%E8%BD%AC"><span class="nav-text">并行化的事件流转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%8C%96%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%B5%81%E8%BD%AC"><span class="nav-text">线性化的事件流转</span></a></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%AD%A6%E4%B9%A0"><span class="nav-text">为什么要学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E6%AD%A5%E9%AA%A4"><span class="nav-text">学习步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80-%E5%AE%9E%E7%8E%B0%E5%9F%BA%E7%A1%80%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%9C%A8%E7%BA%BF%E7%A8%8B%E4%B8%AD%E7%9A%84%E8%BD%AC%E7%A7%BB"><span class="nav-text">第一:实现基础的事件在线程中的转移</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B9%B6%E8%A1%8C%E5%8C%96%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%B5%81%E8%BD%AC"><span class="nav-text">并行化的事件流转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BA%BF%E6%80%A7%E5%8C%96%E7%9A%84%E4%BA%8B%E4%BB%B6%E6%B5%81%E8%BD%AC"><span class="nav-text">线性化的事件流转</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0hanlde%E4%B8%8E%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E7%BB%91%E5%AE%9A%EF%BC%8Chandle%E4%B9%8B%E5%9C%A8%E7%BB%91%E5%AE%9A%E7%9A%84%E7%BA%BF%E7%A8%8B%E4%B8%AD%E6%89%A7%E8%A1%8C%E3%80%82"><span class="nav-text">实现hanlde与线程池的绑定，handle之在绑定的线程中执行。</span></a></li></ol></li></ol>
 
     </div>
 </div>
