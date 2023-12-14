@@ -13,26 +13,25 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/2023/12/13/future/"/>
+    <link rel="canonical" href="http://example.com/2023/12/14/thread/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="FutureTask是什么FutureTask可以用来封装Callable与Runnable的任务。有感知的知道任务的执行状态。填补了JDK提供的线程状态，线程池状态后的任务状态。 123456789A cancellable asynchronous computation. This class provides a base implementation of Future, with me">
+        <meta name="description" content="线程状态变化 NEW A thread that has not yet started is in this state. RUNNABLE A thread executing in the Java virtual machine is in this state. BLOCKED A thread that is blocked waiting for a monitor lock is">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Future">
-<meta property="og:url" content="http://example.com/2023/12/13/future/index.html">
+<meta property="og:title" content="Java线程">
+<meta property="og:url" content="http://example.com/2023/12/14/Thread/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="FutureTask是什么FutureTask可以用来封装Callable与Runnable的任务。有感知的知道任务的执行状态。填补了JDK提供的线程状态，线程池状态后的任务状态。 123456789A cancellable asynchronous computation. This class provides a base implementation of Future, with me">
+<meta property="og:description" content="线程状态变化 NEW A thread that has not yet started is in this state. RUNNABLE A thread executing in the Java virtual machine is in this state. BLOCKED A thread that is blocked waiting for a monitor lock is">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2023/12/13/future/state_change.png">
-<meta property="og:image" content="http://example.com/2023/12/13/future/class-relation.png">
-<meta property="article:published_time" content="2023-12-13T07:33:00.000Z">
-<meta property="article:modified_time" content="2023-12-13T09:41:28.946Z">
+<meta property="og:image" content="http://example.com/2023/12/14/Thread/image-17.png">
+<meta property="article:published_time" content="2023-12-14T12:21:05.000Z">
+<meta property="article:modified_time" content="2023-12-14T16:14:08.146Z">
 <meta property="article:author" content="John Doe">
-<meta property="article:tag" content="异步">
+<meta property="article:tag" content="线程">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2023/12/13/future/state_change.png">
+<meta name="twitter:image" content="http://example.com/2023/12/14/Thread/image-17.png">
     
     
     <!--- Icon Part-->
@@ -44,7 +43,7 @@
     
     <title>
         
-            Future -
+            Java线程 -
         
         Lkb Hugh
     </title>
@@ -361,7 +360,7 @@
 
         <div class="article-title">
             
-                <h1 class="article-title-regular">Future</h1>
+                <h1 class="article-title-regular">Java线程</h1>
             
             </div>
             
@@ -383,15 +382,15 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fa-regular fa-pen-fancy"></i>&nbsp;
-        <span class="desktop">2023-12-13 15:33</span>
-        <span class="mobile">2023-12-13 15:33</span>
+        <span class="desktop">2023-12-14 20:21:05</span>
+        <span class="mobile">2023-12-14 20:21:05</span>
         <span class="hover-info">Created</span>
     </span>
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2023-12-13 17:41:28</span>
-            <span class="mobile">2023-12-13 17:41:28</span>
+            <span class="desktop">2023-12-15 00:14:08</span>
+            <span class="mobile">2023-12-15 00:14:08</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -425,17 +424,7 @@
                             <li>></li>
                         
                         <li>
-                            <a href="/categories/%E5%B9%B6%E5%8F%91/%E7%BA%BF%E7%A8%8B/%E5%BC%82%E6%AD%A5/">异步</a>&nbsp;
-                        </li>
-                    
-                    
-                
-                    
-                        
-                            <li>></li>
-                        
-                        <li>
-                            <a href="/categories/%E5%B9%B6%E5%8F%91/%E7%BA%BF%E7%A8%8B/%E5%BC%82%E6%AD%A5/Java/">Java</a>&nbsp;
+                            <a href="/categories/%E5%B9%B6%E5%8F%91/%E7%BA%BF%E7%A8%8B/Java/">Java</a>&nbsp;
                         </li>
                     
                     
@@ -449,7 +438,7 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E5%BC%82%E6%AD%A5/">异步</a>&nbsp;
+                        <a href="/tags/%E7%BA%BF%E7%A8%8B/">线程</a>&nbsp;
                     </li>
                 
             </ul>
@@ -475,81 +464,58 @@
 
 
         <div class="article-content markdown-body">
-            <h2 id="FutureTask是什么"><a href="#FutureTask是什么" class="headerlink" title="FutureTask是什么"></a>FutureTask是什么</h2><p>FutureTask可以用来封装Callable与Runnable的任务。有感知的知道任务的执行状态。填补了JDK提供的线程状态，线程池状态后的任务状态。</p>
-<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">A cancellable asynchronous computation. This class provides a base implementation of Future, with methods to start and cancel a computation, </span><br><span class="line">query to see if the computation is complete, and retrieve the result of the computation. </span><br><span class="line">The result can only be retrieved when the computation has completed; </span><br><span class="line">the get methods will block if the computation has not yet completed. </span><br><span class="line">Once the computation has completed, the computation cannot be restarted or cancelled (unless the computation is invoked using runAndReset).</span><br><span class="line">A FutureTask can be used to wrap a Callable or Runnable object. </span><br><span class="line">Because FutureTask implements Runnable, a FutureTask can be submitted to an Executor for execution.</span><br><span class="line">In addition to serving as a standalone class, </span><br><span class="line">this class provides protected functionality that may be useful when creating customized task classes.</span><br></pre></td></tr></table></figure></div>
-
-<p>通过文档上的话，我们大概清楚的知道一下几件事情。</p>
-<ol>
-<li>这是我们能感知到状态并可以通过取消的方法去控制的异步任务</li>
-<li>获取未计算完成的结果会阻塞</li>
-<li>通过runAndReset还能回滚</li>
-<li>可用于封装Runnable与Callable任务提交到线程池中。</li>
-<li>提了个醒，可能有利于自定义任务。</li>
-</ol>
-<p>通过这个，我们能猜到一些实现</p>
-<ol>
-<li>有状态的实现</li>
-<li>会有线程的阻塞封装</li>
-<li>可以runAndReset方法</li>
-</ol>
-<h3 id="我们来看下具体的属性"><a href="#我们来看下具体的属性" class="headerlink" title="我们来看下具体的属性"></a>我们来看下具体的属性</h3><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><figcaption><span>FutureTask的主要属性</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 内部持有的callable任务，运行完毕后置空</span></span><br><span class="line"><span class="keyword">private</span> Callable&lt;V&gt; callable;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 从get()中返回的结果或抛出的异常</span></span><br><span class="line"><span class="keyword">private</span> Object outcome; <span class="comment">// non-volatile, protected by state reads/writes</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 运行callable的线程</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> Thread runner;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用Treiber栈保存等待线程</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> WaitNode waiters;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 任务状态</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">volatile</span> <span class="type">int</span> state;</span><br><span class="line"><span class="comment">// 表示是个新的任务或者还没被执行完的任务。这是初始状态。</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">NEW</span>          <span class="operator">=</span> <span class="number">0</span>;</span><br><span class="line"><span class="comment">// 任务已经执行完成或者执行任务的时候发生异常，但是任务执行结果或者异常原因还没有保存到outcome字段(outcome字段用来保存任务执行结果，如果发生异常，则用来保存异常原因)的时候，状态会从NEW变更到COMPLETING。但是这个状态会时间会比较短，属于中间状态</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">COMPLETING</span>   <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"><span class="comment">// 任务已经执行完成并且任务执行结果已经保存到outcome字段，状态会从COMPLETING转换到NORMAL。这是一个最终态。</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">NORMAL</span>       <span class="operator">=</span> <span class="number">2</span>;</span><br><span class="line"><span class="comment">// 任务执行发生异常并且异常原因已经保存到outcome字段中后，状态会从COMPLETING转换到EXCEPTIONAL。这是一个最终态。</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">EXCEPTIONAL</span>  <span class="operator">=</span> <span class="number">3</span>;</span><br><span class="line"><span class="comment">// 任务还没开始执行或者已经开始执行但是还没有执行完成的时候，用户调用了cancel(false)方法取消任务且不中断任务执行线程，这个时候状态会从NEW转化为CANCELLED状态。这是一个最终态。</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">CANCELLED</span>    <span class="operator">=</span> <span class="number">4</span>;</span><br><span class="line"><span class="comment">// 任务还没开始执行或者已经执行但是还没有执行完成的时候，用户调用了cancel(true)方法取消任务并且要中断任务执行线程但是还没有中断任务执行线程之前，状态会从NEW转化为INTERRUPTING。这是一个中间状态。</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">INTERRUPTING</span> <span class="operator">=</span> <span class="number">5</span>;</span><br><span class="line"><span class="comment">// 调用interrupt()中断任务执行线程之后状态会从INTERRUPTING转换到INTERRUPTED。这是一个最终态。 有一点需要注意的是，所有值大于COMPLETING的状态都表示任务已经执行完成(任务正常执行完成，任务执行异常或者任务被取消)。</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="type">int</span> <span class="variable">INTERRUPTED</span>  <span class="operator">=</span> <span class="number">6</span>;</span><br></pre></td></tr></table></figure></div>
-
-<h3 id="状态变化如下"><a href="#状态变化如下" class="headerlink" title="状态变化如下"></a>状态变化如下</h3><!-- ![!\[Alt text\](image-15.png)](2023-12-13-future/state_change.png) -->
+            <h2 id="线程状态变化"><a href="#线程状态变化" class="headerlink" title="线程状态变化"></a>线程状态变化</h2><ul>
+<li>NEW A thread that has not yet started is in this state.</li>
+<li>RUNNABLE A thread executing in the Java virtual machine is in this state.</li>
+<li>BLOCKED A thread that is blocked waiting for a monitor lock is in this state.</li>
+<li>WAITING A thread that is waiting indefinitely for another thread to perform a particular action is in this state.</li>
+<li>TIMED_WAITING A thread that is waiting for another thread to perform an action for up to a specified waiting time is in this state.</li>
+<li>TERMINATED A thread that has exited is in this state.</li>
+</ul>
+<p>A thread can be in only one state at a given point in time. These states are virtual machine states which do not reflect any operating system thread states.</p>
+<!-- ![Alt text](image-17.png) -->
 <img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/2023/12/13/future/state_change.png"
-                      class="" title="状态变化图"
+                     data-src="/2023/12/14/Thread/image-17.png"
+                      class="" title="线程状态变化"
                 >
 
-<p>等待的线程的结构，是一个单向的链表。</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">WaitNode</span> &#123;</span><br><span class="line">    <span class="keyword">volatile</span> Thread thread;</span><br><span class="line">    <span class="keyword">volatile</span> WaitNode next;</span><br><span class="line">    WaitNode() &#123; thread = Thread.currentThread(); &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+
+
+
+<h2 id="中断线程以及判断中断线程的方法"><a href="#中断线程以及判断中断线程的方法" class="headerlink" title="中断线程以及判断中断线程的方法"></a>中断线程以及判断中断线程的方法</h2><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Interrupts this thread.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; Unless the current thread is interrupting itself, which is</span></span><br><span class="line"><span class="comment"> * always permitted, the &#123;<span class="doctag">@link</span> #checkAccess() checkAccess&#125; method</span></span><br><span class="line"><span class="comment"> * of this thread is invoked, which may cause a &#123;<span class="doctag">@link</span></span></span><br><span class="line"><span class="comment"> * SecurityException&#125; to be thrown.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; If this thread is blocked in an invocation of the &#123;<span class="doctag">@link</span></span></span><br><span class="line"><span class="comment"> * Object#wait() wait()&#125;, &#123;<span class="doctag">@link</span> Object#wait(long) wait(long)&#125;, or &#123;<span class="doctag">@link</span></span></span><br><span class="line"><span class="comment"> * Object#wait(long, int) wait(long, int)&#125; methods of the &#123;<span class="doctag">@link</span> Object&#125;</span></span><br><span class="line"><span class="comment"> * class, or of the &#123;<span class="doctag">@link</span> #join()&#125;, &#123;<span class="doctag">@link</span> #join(long)&#125;, &#123;<span class="doctag">@link</span></span></span><br><span class="line"><span class="comment"> * #join(long, int)&#125;, &#123;<span class="doctag">@link</span> #sleep(long)&#125;, or &#123;<span class="doctag">@link</span> #sleep(long, int)&#125;,</span></span><br><span class="line"><span class="comment"> * methods of this class, then its interrupt status will be cleared and it</span></span><br><span class="line"><span class="comment"> * will receive an &#123;<span class="doctag">@link</span> InterruptedException&#125;.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; If this thread is blocked in an I/O operation upon an &#123;<span class="doctag">@link</span></span></span><br><span class="line"><span class="comment"> * java.nio.channels.InterruptibleChannel InterruptibleChannel&#125;</span></span><br><span class="line"><span class="comment"> * then the channel will be closed, the thread&#x27;s interrupt</span></span><br><span class="line"><span class="comment"> * status will be set, and the thread will receive a &#123;<span class="doctag">@link</span></span></span><br><span class="line"><span class="comment"> * java.nio.channels.ClosedByInterruptException&#125;.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; If this thread is blocked in a &#123;<span class="doctag">@link</span> java.nio.channels.Selector&#125;</span></span><br><span class="line"><span class="comment"> * then the thread&#x27;s interrupt status will be set and it will return</span></span><br><span class="line"><span class="comment"> * immediately from the selection operation, possibly with a non-zero</span></span><br><span class="line"><span class="comment"> * value, just as if the selector&#x27;s &#123;<span class="doctag">@link</span></span></span><br><span class="line"><span class="comment"> * java.nio.channels.Selector#wakeup wakeup&#125; method were invoked.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; If none of the previous conditions hold then this thread&#x27;s interrupt</span></span><br><span class="line"><span class="comment"> * status will be set. &lt;/p&gt;</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt; Interrupting a thread that is not alive need not have any effect.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@throws</span>  SecurityException</span></span><br><span class="line"><span class="comment"> *          if the current thread cannot modify this thread</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@revised</span> 6.0</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@spec</span> JSR-51</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// 1. 线程中断中，调用会触发SecurityException</span></span><br><span class="line"><span class="comment">// 2. wait,join,sleep调用中断，会触发InterruptedException</span></span><br><span class="line"><span class="comment">// 3. 在IO中的InterruptibleChannel中，调用中断会触发ClosedByInterruptException</span></span><br><span class="line"><span class="comment">// 4. </span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">interrupt</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">this</span> != Thread.currentThread())</span><br><span class="line">        checkAccess();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">synchronized</span> (blockerLock) &#123;</span><br><span class="line">        <span class="type">Interruptible</span> <span class="variable">b</span> <span class="operator">=</span> blocker;</span><br><span class="line">        <span class="keyword">if</span> (b != <span class="literal">null</span>) &#123;</span><br><span class="line">            interrupt0();           <span class="comment">// Just to set the interrupt flag</span></span><br><span class="line">            b.interrupt(<span class="built_in">this</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    interrupt0();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">native</span> <span class="keyword">void</span> <span class="title function_">interrupt0</span><span class="params">()</span>;</span><br></pre></td></tr></table></figure></div>
 <ul>
-<li>链表的增<ul>
-<li>是通过调用get方法，执行awaitDone方法在状态为NEW时。通过UNSAFE.compareAndSwapObject保证链表操作的线程安全。调用LockSupport阻塞线程</li>
+<li>通过上文知道，无论在什么情况下调用，都会调用interrupt0方法设置中断标志。</li>
+<li>只有在wait,join,sleep方法情况下会抛出InterruptedException。</li>
 </ul>
-</li>
-<li>链表的删<ul>
-<li>执行awaitDone的removeWaiter方法，在中断线程或等待超时后使用</li>
-<li>在set、cancel、setException方法执行finishCompletion方法后，循环链表并UNSAFE.compareAndSwapObject该方法置空，并通过LockSupport.unpark(t)唤醒对应线程</li>
+<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Tests whether the current thread has been interrupted.  The</span></span><br><span class="line"><span class="comment"> * &lt;i&gt;interrupted status&lt;/i&gt; of the thread is cleared by this method.  In</span></span><br><span class="line"><span class="comment"> * other words, if this method were to be called twice in succession, the</span></span><br><span class="line"><span class="comment"> * second call would return false (unless the current thread were</span></span><br><span class="line"><span class="comment"> * interrupted again, after the first call had cleared its interrupted</span></span><br><span class="line"><span class="comment"> * status and before the second call had examined it).</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;A thread interruption ignored because a thread was not alive</span></span><br><span class="line"><span class="comment"> * at the time of the interrupt will be reflected by this method</span></span><br><span class="line"><span class="comment"> * returning false.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>  &lt;code&gt;true&lt;/code&gt; if the current thread has been interrupted;</span></span><br><span class="line"><span class="comment"> *          &lt;code&gt;false&lt;/code&gt; otherwise.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span> #isInterrupted()</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@revised</span> 6.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// 该方法会清空中断状态。因为调用了isInterrupted且传入true</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="type">boolean</span> <span class="title function_">interrupted</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> currentThread().isInterrupted(<span class="literal">true</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Tests whether this thread has been interrupted.  The &lt;i&gt;interrupted</span></span><br><span class="line"><span class="comment"> * status&lt;/i&gt; of the thread is unaffected by this method.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * &lt;p&gt;A thread interruption ignored because a thread was not alive</span></span><br><span class="line"><span class="comment"> * at the time of the interrupt will be reflected by this method</span></span><br><span class="line"><span class="comment"> * returning false.</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span>  &lt;code&gt;true&lt;/code&gt; if this thread has been interrupted;</span></span><br><span class="line"><span class="comment"> *          &lt;code&gt;false&lt;/code&gt; otherwise.</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@see</span>     #interrupted()</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@revised</span> 6.0</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// 返回当前的中断状态。并不清空中断状态，因为调用了isInterrupted且传入false</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">isInterrupted</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> isInterrupted(<span class="literal">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Tests if some Thread has been interrupted.  The interrupted state</span></span><br><span class="line"><span class="comment"> * is reset or not based on the value of ClearInterrupted that is</span></span><br><span class="line"><span class="comment"> * passed.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="comment">// ClearInterrupted是确定是否情况状态，如果为true则清空</span></span><br><span class="line"><span class="comment">// 该方法的ClearInterrupted变量如果为True会将中断状态设置为false</span></span><br><span class="line"><span class="keyword">private</span> <span class="keyword">native</span> <span class="type">boolean</span> <span class="title function_">isInterrupted</span><span class="params">(<span class="type">boolean</span> ClearInterrupted)</span>;</span><br></pre></td></tr></table></figure></div>
+<ul>
+<li>private native boolean isInterrupted(boolean ClearInterrupted)：是本地方法，通过ClearInterrupted变量判断是否重置中断状态，设置为false</li>
+<li>public boolean isInterrupted()：是普通方法，由当前线程对象调用，获取中断状态，并<strong>不</strong>会重置中断状态为false。因为传入ClearInterrupted变量为false</li>
+<li>public static boolean interrupted() ：是Thread的静态方法，有线程Clazz对象调用，获取中断状态，并会重置中断状态为false。因为传入ClearInterrupted变量为true.</li>
 </ul>
-</li>
-</ul>
-<h3 id="Runnable通过适配者模式伪装成Callable"><a href="#Runnable通过适配者模式伪装成Callable" class="headerlink" title="Runnable通过适配者模式伪装成Callable"></a>Runnable通过适配者模式伪装成Callable</h3><!-- ![!\[Alt text\](image-16.png)](2023-12-13-future/class-relation.png) -->
-<img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="/2023/12/13/future/class-relation.png"
-                      class="" title="类的关系图"
-                >
-<p>通过图示知道，Runnable与Callable并无直接关系。所以，不能通过强转等方式使用。<br>FutureTask通过调用Executors.callable方法中的<a href="">适配器模式</a>。主要实现如下。</p>
-<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// java.util.concurrent.Executors.RunnableAdapter</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">class</span> <span class="title class_">RunnableAdapter</span>&lt;T&gt; <span class="keyword">implements</span> <span class="title class_">Callable</span>&lt;T&gt; &#123;</span><br><span class="line">    <span class="keyword">final</span> Runnable task;</span><br><span class="line">    <span class="keyword">final</span> T result;</span><br><span class="line">    RunnableAdapter(Runnable task, T result) &#123;</span><br><span class="line">        <span class="built_in">this</span>.task = task;</span><br><span class="line">        <span class="built_in">this</span>.result = result;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> T <span class="title function_">call</span><span class="params">()</span> &#123;</span><br><span class="line">        task.run();</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
-<h3 id="实现关系"><a href="#实现关系" class="headerlink" title="实现关系"></a>实现关系</h3><ul>
-<li>Runnable接口作为任务的抽象</li>
-<li>Future接口, 用于实现任务的管理的抽象<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> java.util.concurrent;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Future</span>&lt;V&gt; &#123;</span><br><span class="line"></span><br><span class="line">​    <span class="type">boolean</span> <span class="title function_">cancel</span><span class="params">(<span class="type">boolean</span> mayInterruptRunning)</span>;</span><br><span class="line"></span><br><span class="line">​    <span class="type">boolean</span> <span class="title function_">isCancelled</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">​    <span class="type">boolean</span> <span class="title function_">isDone</span><span class="params">()</span>;</span><br><span class="line"></span><br><span class="line">​    V <span class="title function_">get</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException， ExecutionException;</span><br><span class="line"></span><br><span class="line">​    V <span class="title function_">get</span><span class="params">(<span class="type">long</span> timeout，TimeUnit unit)</span> <span class="keyword">throws</span> InterruptedException，   ExecutionException， TimeoutException;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
-</ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>FutureTask是一个实现了Runnable与Future接口的管理任务的抽象，使用Callable接口作为具体的被管理任务。并通过状态、等待线程链表保证线程的阻塞。</p>
-<h2 id="引申-Guava-的异步回调FutureCallback"><a href="#引申-Guava-的异步回调FutureCallback" class="headerlink" title="引申 Guava 的异步回调FutureCallback"></a>引申 Guava 的异步回调FutureCallback</h2><p><a href="">https://www.cnblogs.com/crazymakercircle/p/10086062.html#autoid-h2-5-6-0</a></p>
-<h3 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h3><p><a class="link"   target="_blank" rel="noopener" href="https://www.pdai.tech/md/java/thread/java-thread-x-juc-executor-FutureTask.html" >FutureTask详解 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
-
+<p>总结：所以使用interrupted方法中断线程时，一定会设置中断表示，但在使用isInterrupted方法时，除非有特殊情况，使用对象方法会一直得到一样的结果。</p>
+<h2 id="线程状态判断方法"><a href="#线程状态判断方法" class="headerlink" title="线程状态判断方法"></a>线程状态判断方法</h2><div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Tests if this thread is alive. A thread is alive if it has been started and has not yet died.</span></span><br><span class="line"><span class="comment">// Returns:</span></span><br><span class="line"><span class="comment">// true if this thread is alive; false otherwise.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">native</span> <span class="type">boolean</span> <span class="title function_">isAlive</span><span class="params">()</span>;</span><br></pre></td></tr></table></figure></div>
         </div>
 
         
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li><strong>Title:</strong> Future</li>
+        <li><strong>Title:</strong> Java线程</li>
         <li><strong>Author:</strong> Lkb Hugh</li>
         <li><strong>Created at
-                :</strong> 2023-12-13 15:33:00</li>
+                :</strong> 2023-12-14 20:21:05</li>
         
             <li>
                 <strong>Updated at
-                    :</strong> 2023-12-13 17:41:28
+                    :</strong> 2023-12-15 00:14:08
             </li>
         
         <li>
-            <strong>Link:</strong> https://lkbone.github.io/2023/12/13/future/
+            <strong>Link:</strong> https://lkbone.github.io/2023/12/14/Thread/
         </li>
         <li>
             <strong>
@@ -570,7 +536,7 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/%E5%BC%82%E6%AD%A5/">#异步</a>&nbsp;
+                        <a href="/tags/%E7%BA%BF%E7%A8%8B/">#线程</a>&nbsp;
                     </li>
                 
             </ul>
@@ -581,29 +547,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                        rel="prev"
-                        href="/2023/12/13/ThreadExecutor/"
-                        >
-                            <span class="left arrow-icon flex justify-center items-center">
-                                <i class="fa-solid fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">ThreadPoolExecutor</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                         rel="next"
-                        href="/2023/12/12/TemplatePattern/"
+                        href="/2023/12/14/Pool/"
                         >
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">模版方法模式</span>
+                                <span class="post-nav-title-item">池化技术基础与原理</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex justify-center items-center">
@@ -668,8 +619,8 @@
             <div class="post-toc-wrap">
     <div class="post-toc">
         <div class="toc-title">On this page</div>
-        <div class="page-title">Future</div>
-        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#FutureTask%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">FutureTask是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%88%91%E4%BB%AC%E6%9D%A5%E7%9C%8B%E4%B8%8B%E5%85%B7%E4%BD%93%E7%9A%84%E5%B1%9E%E6%80%A7"><span class="nav-text">我们来看下具体的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%8A%B6%E6%80%81%E5%8F%98%E5%8C%96%E5%A6%82%E4%B8%8B"><span class="nav-text">状态变化如下</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Runnable%E9%80%9A%E8%BF%87%E9%80%82%E9%85%8D%E8%80%85%E6%A8%A1%E5%BC%8F%E4%BC%AA%E8%A3%85%E6%88%90Callable"><span class="nav-text">Runnable通过适配者模式伪装成Callable</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%8E%B0%E5%85%B3%E7%B3%BB"><span class="nav-text">实现关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%95%E7%94%B3-Guava-%E7%9A%84%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83FutureCallback"><span class="nav-text">引申 Guava 的异步回调FutureCallback</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%95%E7%94%A8"><span class="nav-text">引用</span></a></li></ol></li></ol>
+        <div class="page-title">Java线程</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E5%8F%98%E5%8C%96"><span class="nav-text">线程状态变化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%AD%E6%96%AD%E7%BA%BF%E7%A8%8B%E4%BB%A5%E5%8F%8A%E5%88%A4%E6%96%AD%E4%B8%AD%E6%96%AD%E7%BA%BF%E7%A8%8B%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-text">中断线程以及判断中断线程的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81%E5%88%A4%E6%96%AD%E6%96%B9%E6%B3%95"><span class="nav-text">线程状态判断方法</span></a></li></ol>
 
     </div>
 </div>

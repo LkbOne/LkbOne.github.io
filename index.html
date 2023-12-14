@@ -450,15 +450,15 @@
                 </div>
                 <div class="statistics">
                     <a class="item" href="/tags">
-                        <div class="number">6</div>
+                        <div class="number">7</div>
                         <div class="label">Tags</div>
                     </a>
                     <a class="item" href="/categories">
-                        <div class="number">17</div>
+                        <div class="number">18</div>
                         <div class="label">Categories</div>
                     </a>
                     <a class="item" href="/archives">
-                        <div class="number">28</div>
+                        <div class="number">29</div>
                         <div class="label">Posts</div>
                     </a>
                 </div>
@@ -475,6 +475,94 @@
                 
                     <div class="home-content-container">
     <ul class="home-article-list">
+        
+            <li class="home-article-item">
+
+                
+
+                
+
+                
+
+                <h3 class="home-article-title">
+                    <a href="/2023/12/14/Thread/">
+                        Java线程
+                    </a>
+                </h3>
+
+                <div class="home-article-content markdown-body">
+                    
+                        线程状态变化
+NEW A thread that has not yet started is in this state.
+RUNNABLE A thread executing in the Java virtual machine is in ...
+                    
+                </div>
+
+                <div class="home-article-meta-info-container">
+    <div class="home-article-meta-info">
+        <span><i class="fa-solid fa-calendars"></i>&nbsp;
+            <span class="home-article-date" data-date="Thu Dec 14 2023 20:21:05 GMT+0800">
+                
+                    2023-12-14
+                
+            </span>
+        </span>
+        
+            <span class="home-article-category">
+                <i class="fa-solid fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/%E5%B9%B6%E5%8F%91/">并发</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B9%B6%E5%8F%91/%E7%BA%BF%E7%A8%8B/">线程</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E5%B9%B6%E5%8F%91/%E7%BA%BF%E7%A8%8B/Java/">Java</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+        
+        
+            <span class="home-article-tag">
+                <i class="fa-solid fa-tags"></i>&nbsp;
+                <ul>
+                    
+                        <li>
+                            
+                            <a href="/tags/%E7%BA%BF%E7%A8%8B/">线程</a>&nbsp;
+                        </li>
+                    
+                </ul>
+            </span>
+        
+    </div>
+
+    <a href="/2023/12/14/Thread/">Read more<span class="seo-reader-text">Java线程</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+</div>
+
+            </li>
         
             <li class="home-article-item">
 
@@ -573,15 +661,20 @@
 
                 <h3 class="home-article-title">
                     <a href="/2023/12/13/ThreadExecutor/">
-                        ThreadExecutor
+                        ThreadPoolExecutor
                     </a>
                 </h3>
 
                 <div class="home-article-content markdown-body">
                     
-                        线程池是什么线程池是对 池化技术 的实现。 节省对底层资源操作的开销。
-如果是单单的线程池，我们只需要保证线程在可用的阶段。
+                        线程池是什么线程池是对 池化技术  的实现, 节省对底层资源操作的开销。
+如果是单单的线程池，我们只需要保证线程在可用的阶段即可。
+下面的文章，我会先通过线程的角度去分析线程池。
 
+持有线程，线程的增加与减少
+中断线程，保证线程的优雅关闭
+
+Thre...
                     
                 </div>
 
@@ -656,7 +749,7 @@
         
     </div>
 
-    <a href="/2023/12/13/ThreadExecutor/">Read more<span class="seo-reader-text">ThreadExecutor</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
+    <a href="/2023/12/13/ThreadExecutor/">Read more<span class="seo-reader-text">ThreadPoolExecutor</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
@@ -1313,93 +1406,6 @@ AbstractHandle是代表了链表节点的封装
     </div>
 
     <a href="/2023/12/09/pipeline/">Read more<span class="seo-reader-text">pipeline</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
-</div>
-
-            </li>
-        
-            <li class="home-article-item">
-
-                
-
-                
-
-                
-
-                <h3 class="home-article-title">
-                    <a href="/2023/12/08/netty/">
-                        netty
-                    </a>
-                </h3>
-
-                <div class="home-article-content markdown-body">
-                    
-                        在阅读了Netty源码后，我惊讶的get到，事件在不同线程中的转移竟可以这么设计。
-Netty的抽象中，将IO的处理，整理为一个事件处理流程Pipeline，每一个事件处理抽象为Handler。其中，Handler与一个EventLoop关联（你现在...
-                    
-                </div>
-
-                <div class="home-article-meta-info-container">
-    <div class="home-article-meta-info">
-        <span><i class="fa-solid fa-calendars"></i>&nbsp;
-            <span class="home-article-date" data-date="Fri Dec 08 2023 12:01:29 GMT+0800">
-                
-                    2023-12-08
-                
-            </span>
-        </span>
-        
-            <span class="home-article-category">
-                <i class="fa-solid fa-folders"></i>&nbsp;
-            <ul>
-                
-                
-                    
-                        
-                        <li>
-                            <a href="/categories/%E6%9E%B6%E6%9E%84/">架构</a>&nbsp;
-                        </li>
-                    
-                    
-                
-                    
-                        
-                            <li>></li>
-                        
-                        <li>
-                            <a href="/categories/%E6%9E%B6%E6%9E%84/%E7%BB%84%E4%BB%B6/">组件</a>&nbsp;
-                        </li>
-                    
-                    
-                
-                    
-                        
-                            <li>></li>
-                        
-                        <li>
-                            <a href="/categories/%E6%9E%B6%E6%9E%84/%E7%BB%84%E4%BB%B6/Netty/">Netty</a>&nbsp;
-                        </li>
-                    
-                    
-                
-            </ul>
-        </span>
-        
-        
-            <span class="home-article-tag">
-                <i class="fa-solid fa-tags"></i>&nbsp;
-                <ul>
-                    
-                        <li>
-                            
-                            <a href="/tags/Netty/">Netty</a>&nbsp;
-                        </li>
-                    
-                </ul>
-            </span>
-        
-    </div>
-
-    <a href="/2023/12/08/netty/">Read more<span class="seo-reader-text">netty</span>&nbsp;<i class="fa-solid fa-angle-right"></i></a>
 </div>
 
             </li>
