@@ -13,18 +13,25 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/tags/线程/"/>
+    <link rel="canonical" href="http://example.com/2023/12/14/pool/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/tags/%E7%BA%BF%E7%A8%8B/index.html">
+        <meta name="description" content="是什么池化技术通俗来说是提前准备好一些能重复使用的重资源，在需要时可以重复使用这些预先准备的资源，避免重新申请这些资源带来的开销。 在系统开发过程中，我们经常会用到池化技术。常用的实现是：把一些资源预先分配好，组织到对象池中，之后的业务使用资源从对象池中获取，使用完后放回到对象池中。 这样做带来几个明显的好处：  资源重复使用， 减少了资源分配和释放过程中的系统消耗。比如，在IO密集型的服务器上，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="池化技术基础与原理">
+<meta property="og:url" content="http://example.com/2023/12/14/Pool/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="是什么池化技术通俗来说是提前准备好一些能重复使用的重资源，在需要时可以重复使用这些预先准备的资源，避免重新申请这些资源带来的开销。 在系统开发过程中，我们经常会用到池化技术。常用的实现是：把一些资源预先分配好，组织到对象池中，之后的业务使用资源从对象池中获取，使用完后放回到对象池中。 这样做带来几个明显的好处：  资源重复使用， 减少了资源分配和释放过程中的系统消耗。比如，在IO密集型的服务器上，">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/2023/12/14/Pool/running_result.png">
+<meta property="article:published_time" content="2023-12-14T01:27:06.000Z">
+<meta property="article:modified_time" content="2023-12-14T03:04:26.691Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="单机优化">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2023/12/14/Pool/running_result.png">
     
     
     <!--- Icon Part-->
@@ -36,7 +43,7 @@
     
     <title>
         
-            Tag: 线程 -
+            池化技术基础与原理 -
         
         Lkb Hugh
     </title>
@@ -169,7 +176,7 @@
                         
                             <li class="navbar-item">
                                 <!-- Menu -->
-                                <a class="active" 
+                                <a class="" 
                                     href="/tags"  >
                                     
                                         
@@ -277,7 +284,7 @@
             
                 
                     <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
-                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group active" 
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
                         href="/tags"  >
                              
                                 
@@ -348,46 +355,302 @@
             <div class="main-content">
 
                 
-                    <div class="tag-container">
-	<div class="tag-name">
-		<i class="fa-solid fa-tag"></i>&nbsp;线程
-	</div>
-	<div class="tag-post-list">
-		
+                    <div class="post-page-container">
+    <div class="article-content-container">
 
-<div class="archive-list-container">
-    
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2023</span>
-                <span class="archive-year-post-count">[1]</span>
+        <div class="article-title">
+            
+                <h1 class="article-title-regular">池化技术基础与原理</h1>
+            
             </div>
-            <ul class="article-list">
-              
+            
+                    
+        
+        
+            <div class="article-header flex flex-row gap-2 items-center">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/redefine-avatar.svg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Lkb Hugh</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-12-14 09:27:06</span>
+        <span class="mobile">2023-12-14 09:27:06</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-12-14 11:04:26</span>
+            <span class="mobile">2023-12-14 11:04:26</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
                 
                     
-                    <li class="article-item" date-is='12-13'>
+                        
+                        <li>
+                            <a href="/categories/%E9%AB%98%E6%80%A7%E8%83%BD/">高性能</a>&nbsp;
+                        </li>
+                    
+                    
                 
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E9%AB%98%E6%80%A7%E8%83%BD/%E5%8D%95%E6%9C%BA/">单机</a>&nbsp;
+                        </li>
+                    
+                    
                 
-                    <a href="/2023/12/13/future/">
-                        <span class="article-title">Future</span>
-                    </a>
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/%E9%AB%98%E6%80%A7%E8%83%BD/%E5%8D%95%E6%9C%BA/%E6%B1%A0%E5%8C%96%E6%8A%80%E6%9C%AF/">池化技术</a>&nbsp;
+                        </li>
+                    
+                    
                 
-              
             </ul>
-        </section>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E5%8D%95%E6%9C%BA%E4%BC%98%E5%8C%96/">单机优化</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
     
 </div>
 
-	</div>
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body">
+            <h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>池化技术通俗来说是提前准备好一些能重复使用的重资源，在需要时可以重复使用这些预先准备的资源，避免重新申请这些资源带来的开销。</p>
+<p>在系统开发过程中，我们经常会用到池化技术。常用的实现是：把一些资源预先分配好，组织到对象池中，之后的业务使用资源从对象池中获取，使用完后放回到对象池中。</p>
+<p>这样做带来几个明显的好处：</p>
+<ul>
+<li><p>资源重复使用， 减少了资源分配和释放过程中的系统消耗。比如，在IO密集型的服务器上，并发处理过程中的子线程或子进程的创建和销毁过程，带来的系统开销将是难以接受的。所以在业务实现上，通常把一些资源预先分配好，如线程池，数据库连接池，Redis连接池，HTTP连接池等，来减少系统消耗，提升系统性能。</p>
+</li>
+<li><p>对资源的整体使用做限制。相关资源预分配且只在预分配是生成，后续可以动态的增加到一定的上限，从而限制了整个系统对资源的使用上限。</p>
+</li>
+<li><p>池化技术分配对象池，通常会集中分配，这样有效避免了碎片化的问题。</p>
+</li>
+</ul>
+<p>使用池化技术，我们可以先问问这俩个问题。</p>
+<ol>
+<li>这个资源申请开销大吗？</li>
+<li>这个资源是否能够后续带来很大的复用？</li>
+</ol>
+<h2 id="怎么用"><a href="#怎么用" class="headerlink" title="怎么用"></a>怎么用</h2><ul>
+<li>线程池:<br>  先启动若干数量的线程，并让这些线程都处于睡眠状态，当有新任务时，就会唤醒线程池中的某一个睡眠线程，让它来处理这个任务，当处理完这个请求后，线程又处于睡眠状态。</li>
+<li>连接池:<br>  对于访问其他系统的都会使用连接池技术，如对Redis、MySQL数据库连接池是在数据库启动时建立足够的数据库连接并保持长连接，并将这些连接组成一个连接池，由应用程序动态地对池中的连接进行申请、使用和释放。对于多于连接池数据库连接数的并发请求，则在请求队列中排队等待。并且应用程序可以根据池中连接的使用率，动态增加或减少池中的连接数，这个增加减少由数据库连接池管理线程进行操作。</li>
+<li>内存池:<br>  对于内存申请等操作为了避免向系统申请内存导致的大量开销，会将内存在应用中持有而不是释放回系统，让应用自己管理。如Jemalloc等内存池使用工具。</li>
+</ul>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><ul>
+<li>线程池<ul>
+<li><p>目标：比较使用线程池与一直创建新线程的耗时</p>
+</li>
+<li><p>设计：打印1000次，统计耗时。</p>
+</li>
+<li><p>使用的工具：</p>
+<ul>
+<li>线程池的选择<ul>
+<li>组件是：自定义ThreadPoolExecutor。而不是直接使用ExecutorService pool &#x3D; Executors.newSingleThreadExecutor()因为内部是一个无限大的阻塞队列，会使任务放在队列中，无法使主线程计算较正确的完成时间;</li>
+<li>核心线程与最大线程数相同都是：1</li>
+<li>队列选择了同步队列</li>
+<li>抛弃策略：自定义了抛弃策略，保证不抛弃任务且往同步队列添加，保证线性的执行.<div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">ThreadPoolExecutor</span> <span class="variable">pool</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ThreadPoolExecutor</span>(<span class="number">1</span>, <span class="number">1</span>, <span class="number">10</span>, TimeUnit.SECONDS, <span class="keyword">new</span> <span class="title class_">SynchronousQueue</span>&lt;Runnable&gt;(), <span class="keyword">new</span> <span class="title class_">RejectedExecutionHandle</span> () &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">rejectedExecution</span><span class="params">(Runnable r, ThreadPoolExecutor executor)</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            executor.getQueue().put(r);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(e);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+</li>
+<li>只有线程的执行  <div class="highlight-container" data-rel="Java"><figure class="iseeu highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">1000</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">final</span> <span class="type">int</span> <span class="variable">finalI</span> <span class="operator">=</span> i;</span><br><span class="line">    <span class="keyword">new</span> <span class="title class_">Thread</span>(<span class="keyword">new</span> <span class="title class_">Runnable</span>() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">run</span><span class="params">()</span> &#123;</span><br><span class="line">            System.out.println(finalI);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).start();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+</li>
+<li><p>执行结果</p>
+<!-- ![!\[Alt text\](image-15.png)](2023-12-14-Pool/running_result.png) -->
+<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/2023/12/14/Pool/running_result.png"
+                      class="" title="函数结果比较图"
+                >
+
+<p>从结果看，使用线程池的耗时短了2倍多。</p>
+</li>
+<li><p>代码的实现</p>
+<p><a class="link"   target="_blank" rel="noopener" href="https://github.com/LkbOne/netty-learning/tree/main/src/main/java/org/example/thread/pools" >github <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> 池化技术基础与原理</li>
+        <li><strong>Author:</strong> Lkb Hugh</li>
+        <li><strong>Created at
+                :</strong> 2023-12-14 09:27:06</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2023-12-14 11:04:26
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://lkbone.github.io/2023/12/14/Pool/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+            This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">CC BY-NC-SA 4.0</a>.
+            
+
+        </li>
+    </ul>
 </div>
 
-<div class="tag-paginator">
-	<div class="paginator">
-    <span class="page-number current">1</span>
+            </div>
+        
+
+        
+            <ul class="post-tags-box">
+                
+                    <li class="tag-item">
+                        <a href="/tags/%E5%8D%95%E6%9C%BA%E4%BC%98%E5%8C%96/">#单机优化</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                        rel="next"
+                        href="/2023/12/13/ThreadExecutor/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">ThreadExecutor</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container">
+                <div class="comments-container pjax">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fa-solid fa-comments"></i>&nbsp;Comments
+    </div>
+    
+
+        
+            
+ 
+    <div id="waline"></div>
+    <script type="module"  data-swup-reload-script>
+        import { init } from '/js/libs/waline.mjs';
+
+        function loadWaline() {
+            init({
+                el: '#waline',
+                serverURL: 'https://example.example.com',
+                lang: 'zh-CN',
+                dark: 'body[class~="dark-mode"]',
+                requiredMeta: ['nick','mail'], // cannot customize by theme config, change it yourself
+            });
+        }
+
+        if ('true') {
+            const loadWalineTimeout = setTimeout(() => {
+                loadWaline();
+                clearTimeout(loadWalineTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadWaline);
+        }
+        
+    </script>
+
+
+
+        
+    
 </div>
 
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">池化技术基础与原理</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%98%AF%E4%BB%80%E4%B9%88"><span class="nav-text">是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%8E%E4%B9%88%E7%94%A8"><span class="nav-text">怎么用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E4%BE%8B"><span class="nav-text">实例</span></a></li></ol>
+
+    </div>
 </div>
+        </div>
+    
+</div>
+
 
 
                 
@@ -461,6 +724,27 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-side-tools-container">
